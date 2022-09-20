@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+import cashbook.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',cashbook.views.main, name='main'),
+    path('write/',cashbook.views.write, name='write'),
+    path('read/',cashbook.views.read, name='read'),
+    path('detail/<str:id>/',cashbook.views.detail, name='detail'),
 ]
